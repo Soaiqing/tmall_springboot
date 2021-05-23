@@ -6,8 +6,7 @@
 
 package com.wzh.tmall.service;
 
-import java.util.List;
-
+import com.wzh.tmall.dao.OrderItemDAO;
 import com.wzh.tmall.pojo.Order;
 import com.wzh.tmall.pojo.OrderItem;
 import com.wzh.tmall.pojo.Product;
@@ -19,7 +18,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.wzh.tmall.dao.OrderItemDAO;
+import java.util.List;
 
 @Service
 @CacheConfig(cacheNames="orderItems")
@@ -28,8 +27,9 @@ public class OrderItemService {
 	@Autowired ProductImageService productImageService;
 
 	public void fill(List<Order> orders) {
-		for (Order order : orders) 
+		for (Order order : orders) {
 			fill(order);
+		}
 	}
 	@CacheEvict(allEntries=true)
 	public void update(OrderItem orderItem) {
@@ -75,9 +75,11 @@ public class OrderItemService {
         List<OrderItem> ois =orderItemService.listByProduct(product);
         int result =0;
         for (OrderItem oi : ois) {
-        	if(null!=oi.getOrder())
-        	if(null!= oi.getOrder() && null!=oi.getOrder().getPayDate())
-        		result+=oi.getNumber();
+        	if(null!=oi.getOrder()) {
+				if(null!= oi.getOrder() && null!=oi.getOrder().getPayDate()) {
+					result+=oi.getNumber();
+				}
+			}
         }
         return result;
     }

@@ -26,8 +26,5 @@ spring:
         max-idle: 8
         min-idle: 0
 
-  data:
-    elasticsearch:
-      cluster-name: 127.0.0.1:9300
 server:
   port: 8080

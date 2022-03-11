@@ -1,6 +1,7 @@
 package com.wzh.tmall.entity;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
  * @since 2022-03-11 10:52:21
  */
 @SuppressWarnings("serial")
+@Data
 public class Propertyvalue extends Model<Propertyvalue> {
 
     private Integer id;
@@ -22,37 +24,6 @@ public class Propertyvalue extends Model<Propertyvalue> {
     private String value;
 
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
-
-    public Integer getPtid() {
-        return ptid;
-    }
-
-    public void setPtid(Integer ptid) {
-        this.ptid = ptid;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 
     /**
      * 获取主键值

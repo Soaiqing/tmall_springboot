@@ -198,10 +198,10 @@
 				var price =$(".cartProductItemSmallSumPrice[oiid="+oiid+"]").text();
 				price = price.replace(/,/g, "");
 				price = price.replace(/￥/g, "");
-				sum += new Number(price);	
+				sum += Number(price);
 				
 				var num =$(".orderItemNumberSetting[oiid="+oiid+"]").val();
-				totalNumber += new Number(num);	
+				totalNumber += Number(num);
 				
 			});
 			

@@ -23,7 +23,7 @@
 					$("div.productUnit").hide();
 					$("div.productUnit").each(function(){
 						var price = $(this).attr("price");
-						price = new Number(price);
+						price = Number(price);
 						
 						if(price<=end && price>=begin)
 							$(this).show();

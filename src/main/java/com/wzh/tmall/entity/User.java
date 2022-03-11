@@ -1,6 +1,9 @@
 package com.wzh.tmall.entity;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -11,38 +14,19 @@ import java.io.Serializable;
  * @since 2022-03-11 10:52:22
  */
 @SuppressWarnings("serial")
+@Data
+@ApiModel(value = "(User)表实体类")
 public class User extends Model<User> {
 
+    @ApiModelProperty(value = "主键")
     private Integer id;
 
+    @ApiModelProperty(value = "姓名")
     private String name;
 
+    @ApiModelProperty(value = "密码")
     private String password;
 
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     /**
      * 获取主键值

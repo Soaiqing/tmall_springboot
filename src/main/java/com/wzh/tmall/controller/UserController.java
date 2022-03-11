@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wzh.tmall.entity.User;
 import com.wzh.tmall.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,6 +23,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("user")
+@Api(value = "UserController" , tags = "(User)表控制层")
 public class UserController extends ApiController {
     /**
      * 服务对象
@@ -36,6 +39,7 @@ public class UserController extends ApiController {
      * @return 所有数据
      */
     @GetMapping
+    @ApiOperation(value = "分页查询所有数据")
     public R selectAll(Page<User> page, User user) {
         return success(this.userService.page(page, new QueryWrapper<>(user)));
     }
@@ -47,6 +51,7 @@ public class UserController extends ApiController {
      * @return 单条数据
      */
     @GetMapping("{id}")
+    @ApiOperation(value = "通过主键查询单条数据")
     public R selectOne(@PathVariable Serializable id) {
         return success(this.userService.getById(id));
     }
@@ -58,6 +63,7 @@ public class UserController extends ApiController {
      * @return 新增结果
      */
     @PostMapping
+    @ApiOperation(value = "新增数据")
     public R insert(@RequestBody User user) {
         return success(this.userService.save(user));
     }
@@ -69,6 +75,7 @@ public class UserController extends ApiController {
      * @return 修改结果
      */
     @PutMapping
+    @ApiOperation(value = "修改数据")
     public R update(@RequestBody User user) {
         return success(this.userService.updateById(user));
     }
@@ -80,6 +87,7 @@ public class UserController extends ApiController {
      * @return 删除结果
      */
     @DeleteMapping
+    @ApiOperation(value = "删除数据")
     public R delete(@RequestParam("idList") List<Long> idList) {
         return success(this.userService.removeByIds(idList));
     }

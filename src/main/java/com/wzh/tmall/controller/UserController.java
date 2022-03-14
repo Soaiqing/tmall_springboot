@@ -5,15 +5,19 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wzh.tmall.constant.RedisConstant;
 import com.wzh.tmall.entity.User;
 import com.wzh.tmall.service.UserService;
+import com.wzh.tmall.util.JwtUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * (User)表控制层
@@ -30,6 +34,10 @@ public class UserController extends ApiController {
      */
     @Resource
     private UserService userService;
+
+
+    @Resource
+    private RedisTemplate<String, Object> redisTemplate;
 
     /**
      * 分页查询所有数据
@@ -52,7 +60,7 @@ public class UserController extends ApiController {
      */
     @GetMapping("{id}")
     @ApiOperation(value = "通过主键查询单条数据")
-    public R selectOne(@PathVariable Serializable id) {
+    public R<User> selectOne(@PathVariable Serializable id) {
         return success(this.userService.getById(id));
     }
 
@@ -62,9 +70,9 @@ public class UserController extends ApiController {
      * @param user 实体对象
      * @return 新增结果
      */
-    @PostMapping
+    @PostMapping(value = "/insert")
     @ApiOperation(value = "新增数据")
-    public R insert(@RequestBody User user) {
+    public R<Boolean> insert(@RequestBody User user) {
         return success(this.userService.save(user));
     }
 
@@ -74,9 +82,9 @@ public class UserController extends ApiController {
      * @param user 实体对象
      * @return 修改结果
      */
-    @PutMapping
+    @PutMapping(value = "/update")
     @ApiOperation(value = "修改数据")
-    public R update(@RequestBody User user) {
+    public R<Boolean> update(@RequestBody User user) {
         return success(this.userService.updateById(user));
     }
 
@@ -88,8 +96,34 @@ public class UserController extends ApiController {
      */
     @DeleteMapping
     @ApiOperation(value = "删除数据")
-    public R delete(@RequestParam("idList") List<Long> idList) {
+    public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return success(this.userService.removeByIds(idList));
+    }
+
+
+    /**
+     * 用户登录
+     * @param user
+     * @return
+     * @throws Exception
+     */
+    @ApiOperation(value = "用户登录")
+    @PostMapping("/login")
+    public R<String> login(@RequestBody User user) throws Exception {
+        User userUser = userService.getOne(new QueryWrapper<User>()
+        .lambda()
+        .eq(User::getName,user.getName())
+        .eq(User::getPassword,user.getPassword())
+        .last("LIMIT 1"));
+        if (userUser == null){
+            throw new Exception("请输入正确的账号以及密码!");
+        }else {
+            //生成Token并存入缓存
+            String token = JwtUtils.token(user.getName(),user.getPassword());
+            redisTemplate.opsForValue().set(RedisConstant.USER_AUTHORIZATION + token,
+                    userUser, RedisConstant.LOGIN_USER_TOKEN_TIMEOUT, TimeUnit.MINUTES);
+            return R.ok(token);
+        }
     }
 }
 

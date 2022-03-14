@@ -5,8 +5,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wzh.tmall.annotation.AuthCheck;
 import com.wzh.tmall.entity.Category;
 import com.wzh.tmall.service.CategoryService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,6 +24,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("category")
+@Api(value = "CategoryController" , tags = "(Category)表控制层" )
 public class CategoryController extends ApiController {
     /**
      * 服务对象
@@ -46,8 +50,10 @@ public class CategoryController extends ApiController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("{id}")
-    public R selectOne(@PathVariable Serializable id) {
+    @ApiOperation(value = "查询商品类别")
+    @GetMapping("/selectOne")
+    @AuthCheck
+    public R selectOne(@RequestParam Serializable id) {
         return success(this.categoryService.getById(id));
     }
 

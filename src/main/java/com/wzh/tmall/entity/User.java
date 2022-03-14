@@ -1,5 +1,8 @@
 package com.wzh.tmall.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,10 +19,13 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 @Data
 @ApiModel(value = "(User)表实体类")
+@TableName("user")
 public class User extends Model<User> {
 
     @ApiModelProperty(value = "主键")
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
+
 
     @ApiModelProperty(value = "姓名")
     private String name;

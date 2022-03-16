@@ -2,11 +2,11 @@ package com.wzh.tmall.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wzh.tmall.annotation.AuthCheck;
 import com.wzh.tmall.entity.Category;
+import com.wzh.tmall.entity.User;
 import com.wzh.tmall.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,7 +25,7 @@ import java.util.List;
 @RestController
 @RequestMapping("category")
 @Api(value = "CategoryController" , tags = "(Category)表控制层" )
-public class CategoryController extends ApiController {
+public class CategoryController extends BaseController {
     /**
      * 服务对象
      */
@@ -41,7 +41,7 @@ public class CategoryController extends ApiController {
      */
     @GetMapping
     public R selectAll(Page<Category> page, Category category) {
-        return success(this.categoryService.page(page, new QueryWrapper<>(category)));
+        return R.ok(this.categoryService.page(page, new QueryWrapper<>(category)));
     }
 
     /**
@@ -54,7 +54,9 @@ public class CategoryController extends ApiController {
     @GetMapping("/selectOne")
     @AuthCheck
     public R selectOne(@RequestParam Serializable id) {
-        return success(this.categoryService.getById(id));
+        User user = getUser();
+        System.out.println(user);
+        return R.ok(this.categoryService.getById(id));
     }
 
     /**
@@ -65,7 +67,7 @@ public class CategoryController extends ApiController {
      */
     @PostMapping
     public R insert(@RequestBody Category category) {
-        return success(this.categoryService.save(category));
+        return R.ok(this.categoryService.save(category));
     }
 
     /**
@@ -76,7 +78,7 @@ public class CategoryController extends ApiController {
      */
     @PutMapping
     public R update(@RequestBody Category category) {
-        return success(this.categoryService.updateById(category));
+        return R.ok(this.categoryService.updateById(category));
     }
 
     /**
@@ -87,7 +89,7 @@ public class CategoryController extends ApiController {
      */
     @DeleteMapping
     public R delete(@RequestParam("idList") List<Long> idList) {
-        return success(this.categoryService.removeByIds(idList));
+        return R.ok(this.categoryService.removeByIds(idList));
     }
 }
 

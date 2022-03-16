@@ -11,5 +11,11 @@ import com.wzh.tmall.entity.User;
  */
 public interface UserService extends IService<User> {
 
+    /**
+     * 获取当前登录的用户信息
+     * @param token
+     * @return
+     */
+    User getUserToken(String token);
 }
 

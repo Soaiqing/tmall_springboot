@@ -54,8 +54,6 @@ public class CategoryController extends BaseController {
     @GetMapping("/selectOne")
     @AuthCheck
     public R selectOne(@RequestParam Serializable id) {
-        User user = getUser();
-        System.out.println(user);
         return R.ok(this.categoryService.getById(id));
     }
 
@@ -65,7 +63,8 @@ public class CategoryController extends BaseController {
      * @param category 实体对象
      * @return 新增结果
      */
-    @PostMapping
+    @PostMapping("/insert")
+    @AuthCheck
     public R insert(@RequestBody Category category) {
         return R.ok(this.categoryService.save(category));
     }

@@ -15,6 +15,7 @@ import java.io.Serializable;
 @Data
 public class Category extends Model<Category> {
 
+
     private Integer id;
 
     private String name;

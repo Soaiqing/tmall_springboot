@@ -26,7 +26,6 @@ public class User extends Model<User> {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-
     @ApiModelProperty(value = "姓名")
     private String name;
 

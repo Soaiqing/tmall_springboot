@@ -39,6 +39,7 @@ public class CategoryController extends BaseController {
      * @param category 查询实体
      * @return 所有数据
      */
+    @ApiOperation(value = "分页查询所有数据")
     @GetMapping
     public R selectAll(Page<Category> page, Category category) {
         return R.ok(this.categoryService.page(page, new QueryWrapper<>(category)));
@@ -63,6 +64,7 @@ public class CategoryController extends BaseController {
      * @param category 实体对象
      * @return 新增结果
      */
+    @ApiOperation(value = "新增数据")
     @PostMapping("/insert")
     @AuthCheck
     public R insert(@RequestBody Category category) {
@@ -76,6 +78,7 @@ public class CategoryController extends BaseController {
      * @return 修改结果
      */
     @PutMapping
+    @ApiOperation(value = "修改数据")
     public R update(@RequestBody Category category) {
         return R.ok(this.categoryService.updateById(category));
     }
@@ -87,6 +90,7 @@ public class CategoryController extends BaseController {
      * @return 删除结果
      */
     @DeleteMapping
+    @ApiOperation(value = "删除数据")
     public R delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(this.categoryService.removeByIds(idList));
     }

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author wzh
  * @date 2022-3-30 09:18:20
- * @deprecated 我的rabbit属性
+ * @Description 我的rabbit属性
  */
 @Data
 @Configuration

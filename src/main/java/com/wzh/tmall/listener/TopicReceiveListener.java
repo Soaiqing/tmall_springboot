@@ -1,7 +1,6 @@
 package com.wzh.tmall.listener;
 
-import com.rabbitmq.client.Channel;
-import org.springframework.amqp.core.Message;
+
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author wzh
  * @date 2022-3-30 10:09:59
- * @deprecated "mq消息接受"
+ * @Description 2022-3-30 10:09:59
  */
 @Component
 public class TopicReceiveListener {

@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 /**
  * @author wzh
  * @date 2022-3-30 09:33:57
- * @deprecated MQ控制层
+ * @Description MQ控制层
  */
 @RestController
 @RequestMapping("mq")

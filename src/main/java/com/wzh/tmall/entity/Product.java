@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Data
 @ApiModel(value = "(Product)表实体类")
 @TableName("product")
-public class Product extends Model<Product> {
+public class Product extends Model<Product> implements Serializable{
 
 
     @ApiModelProperty(value = "主键")

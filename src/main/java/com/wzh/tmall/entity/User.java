@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Data
 @ApiModel(value = "(User)表实体类")
 @TableName("user")
-public class User extends Model<User> {
+public class User extends Model<User> implements Serializable {
 
     @ApiModelProperty(value = "主键")
     @TableId(value = "id", type = IdType.AUTO)
@@ -32,6 +32,11 @@ public class User extends Model<User> {
     @ApiModelProperty(value = "密码")
     private String password;
 
+    public User(Integer id, String name, String password) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+    }
 
     /**
      * 获取主键值

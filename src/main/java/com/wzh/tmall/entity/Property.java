@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @SuppressWarnings("serial")
 @Data
-public class Property extends Model<Property> {
+public class Property extends Model<Property> implements Serializable{
 
     private Integer id;
 

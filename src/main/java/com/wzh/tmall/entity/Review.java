@@ -15,7 +15,7 @@ import java.io.Serializable;
  */
 @SuppressWarnings("serial")
 @Data
-public class Review extends Model<Review> {
+public class Review extends Model<Review> implements Serializable{
 
     private Integer id;
 

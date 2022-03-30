@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Data
 @ApiModel(value = "(Orderitem)表实体类")
 @TableName("orderitem")
-public class Orderitem extends Model<Orderitem> {
+public class Orderitem extends Model<Orderitem> implements Serializable{
 
     @ApiModelProperty(value = "主键")
     @TableId(value = "id", type = IdType.AUTO)

@@ -22,7 +22,7 @@ import java.io.Serializable;
 @Data
 @ApiModel(value = "(Order)表实体类")
 @TableName("order")
-public class Order extends Model<Order> {
+public class Order extends Model<Order> implements Serializable{
 
     @ApiModelProperty(value = "主键")
     @TableId(value = "id", type = IdType.AUTO)

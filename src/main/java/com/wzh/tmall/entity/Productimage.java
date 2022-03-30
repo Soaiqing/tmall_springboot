@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @SuppressWarnings("serial")
 @Data
-public class Productimage extends Model<Productimage> {
+public class Productimage extends Model<Productimage> implements Serializable{
 
     private Integer id;
 

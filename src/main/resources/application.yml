@@ -26,13 +26,40 @@ spring:
         max-idle: 8
         min-idle: 0
 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    # 开启消息确认机制 confirm 异步
+    publisher-confirm-type: correlated
+    # 消息开启手动确认
+    listener:
+      direct:
+        acknowledge-mode: manual
+    publisher-returns: true
+
 server:
   port: 8888
 
 
-# wzh新增配置
-    # 配置swagger
+    # wzh新增配置
+  # 配置swagger
 swagger:
   enable: true
+
+rabbit:
+  #工作
+  queueWork: queue_Work
+  queueFanout1: queue_Fanout1
+  queueFanout2: queue_Fanout2
+  exchangeFanout: exchange_fanout
+  queueTopic1: queue_Topic1
+  queueTopic2: queue_Topic2
+  exchangeTopic: exchange_topic
+  queueConfirm: queue_Confirm
+  queueReturn: queue_Return
+  exchangeReturn: exchange_Return
+
 
 

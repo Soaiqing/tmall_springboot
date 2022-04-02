@@ -50,16 +50,22 @@ swagger:
 
 rabbit:
   #工作
-  queueWork: queue_Work
-  queueFanout1: queue_Fanout1
-  queueFanout2: queue_Fanout2
+  queueWork: queue_work
+  queueFanout1: queue_fanout1
+  queueFanout2: queue_fanout2
   exchangeFanout: exchange_fanout
-  queueTopic1: queue_Topic1
-  queueTopic2: queue_Topic2
+  queueTopic1: queue_topic1
+  queueTopic2: queue_topic2
   exchangeTopic: exchange_topic
-  queueConfirm: queue_Confirm
-  queueReturn: queue_Return
-  exchangeReturn: exchange_Return
+  queueConfirm: queue_confirm
+  queueReturn: queue_return
+  exchangeReturn: exchange_return
+  queueTTL: queue_ttl
+  exchangeTTL: exchange_ttl
+  queueDLX: queue_dlx
+  exchangeDLX: exchange_dlx
+  exchangeReceive: exchange_receive
+  queueReceive: queue_receive
 
 
 

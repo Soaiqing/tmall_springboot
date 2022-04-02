@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ConfirmReceiveListener {
-    @RabbitListener(queues = "queue_Confirm")
+    @RabbitListener(queues = "queue_confirm")
     public void receiveMsg(User user) {
         System.out.println("接收到的消息为：" + user);
     }

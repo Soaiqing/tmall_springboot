@@ -103,7 +103,9 @@ public class MqServiceImpl implements MqService {
     @Override
     public void sendReturn() {
         rabbitTemplate.setReturnCallback(returnCallback);
-        rabbitTemplate.convertAndSend(myRabbitProperties.getExchangeReturn(), "return.km.km", "测试 return 机制");
+        rabbitTemplate.convertAndSend(myRabbitProperties.getExchangeReturn(), "return.km.km", "测试 return 机制2");
+        rabbitTemplate.convertAndSend(myRabbitProperties.getExchangeReturn(), "return.km", "测试 return 机制1");
+
     }
 
 }

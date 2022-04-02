@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class PublishReceiveListener {
-    @RabbitListener(queues = "queue_Fanout1")
+    @RabbitListener(queues = "queue_fanout1")
     public void receiveMessage(String msg, Channel channel, Message message) {
         // 只包含发送的消息
         System.out.println("1接收到消息：" + msg);
@@ -21,7 +21,7 @@ public class PublishReceiveListener {
         // message 附加的参数信息
     }
 
-    @RabbitListener(queues = "queue_Fanout2")
+    @RabbitListener(queues = "queue_fanout2")
     public void receiveMessage2(Object obj, Channel channel, Message message) {
         // 包含所有的信息
         System.out.println("2接收到消息：" + obj);

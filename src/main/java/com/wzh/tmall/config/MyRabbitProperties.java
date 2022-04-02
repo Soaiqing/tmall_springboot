@@ -24,4 +24,10 @@ public class MyRabbitProperties {
     private String queueConfirm;
     private String queueReturn;
     private String exchangeReturn;
+    private String queueTTL;
+    private String exchangeTTL;
+    private String queueDLX;
+    private String exchangeDLX;
+    private String exchangeReceive;
+    private String queueReceive;
 }

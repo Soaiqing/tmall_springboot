@@ -1,0 +1,92 @@
+{
+  "groups": [
+    {
+      "name": "rabbit",
+      "type": "com.wzh.tmall.config.MyRabbitProperties",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "rabbit.exchange-d-l-x",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.exchange-fanout",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.exchange-receive",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.exchange-return",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.exchange-t-t-l",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.exchange-topic",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.queue-confirm",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.queue-d-l-x",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.queue-fanout1",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.queue-fanout2",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.queue-receive",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.queue-return",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.queue-t-t-l",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.queue-topic1",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.queue-topic2",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    },
+    {
+      "name": "rabbit.queue-work",
+      "type": "java.lang.String",
+      "sourceType": "com.wzh.tmall.config.MyRabbitProperties"
+    }
+  ],
+  "hints": []
+}

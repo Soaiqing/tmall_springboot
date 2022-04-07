@@ -1,6 +1,6 @@
 spring:
   application:
-    name: tmall
+    name: tmall_dev
   cloud:
     nacos:
       config:

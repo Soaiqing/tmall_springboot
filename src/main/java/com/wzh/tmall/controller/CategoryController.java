@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wzh.tmall.annotation.AuthCheck;
 import com.wzh.tmall.entity.Category;
-import com.wzh.tmall.entity.User;
 import com.wzh.tmall.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

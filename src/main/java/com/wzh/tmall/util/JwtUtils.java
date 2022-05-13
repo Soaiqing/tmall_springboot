@@ -10,18 +10,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author wzh
- * @date 2022-3-11 17:14:59
- */
-
-/**
  * @desc   使用token验证用户是否登录
  * @author zm
  **/
 public class JwtUtils {
-    //设置过期时间
-    private static final long EXPIRE_DATE=30*60*100000;
-    //token秘钥
+    /**
+     * 设置过期时间
+     */
+
+    private static final long EXPIRE_DATE=30*60*100000L;
+    /**
+     * token秘钥
+     */
     private static final String TOKEN_SECRET = "ZCfasfhuaUUHufguGuwu2020BQWE";
 
     public static String token (String username,String password){

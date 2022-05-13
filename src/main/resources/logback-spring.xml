@@ -13,7 +13,8 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %level [%-15.15t{14}] %-40.40logger{39} %-4.4line{3}: %m%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>C:\Users\Administrator\.jenkins\workspace\MyPipeline\log\tmall.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>C:\Users\Administrator\.jenkins\workspace\MyPipeline\log\tmall.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
             <!-- 30 days -->
             <!--<maxHistory>30</maxHistory>-->
         </rollingPolicy>
@@ -21,17 +22,21 @@
 
 
     <!--开发环境:打印控制台-->
-    <springProfile name="dev">
-        <root level="INFO">
-            <appender-ref ref="STDOUT"/>
-            <appender-ref ref="FILE-OUT"/>
-        </root>
-    </springProfile>
+    <!--    <springProfile name="dev">-->
+    <!--        <root level="INFO">-->
+    <!--            <appender-ref ref="STDOUT"/>-->
+    <!--            <appender-ref ref="FILE-OUT"/>-->
+    <!--        </root>-->
+    <!--    </springProfile>-->
     <!--生产环境:输出到文件-->
-    <springProfile name="pro">
-        <root level="INFO">
-            <appender-ref ref="STDOUT"/>
-            <appender-ref ref="FILE-OUT"/>
-        </root>
-    </springProfile>
+    <!--    <springProfile name="pro">-->
+    <!--        <root level="INFO">-->
+    <!--            <appender-ref ref="STDOUT"/>-->
+    <!--            <appender-ref ref="FILE-OUT"/>-->
+    <!--        </root>-->
+    <!--    </springProfile>-->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE-OUT"/>
+    </root>
 </configuration>

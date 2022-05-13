@@ -1,6 +1,7 @@
 package com.wzh.tmall.listener;
 
 import com.wzh.tmall.entity.User;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
@@ -11,10 +12,11 @@ import org.springframework.stereotype.Component;
  * @Description "mq消息接受"
  */
 @Component
+@Log4j2
 public class ConfirmReceiveListener {
     @RabbitListener(queues = "queue_confirm")
     public void receiveMsg(User user) {
-        System.out.println("接收到的消息为：" + user);
+        log.info("接收到的消息为：" + user);
     }
 }
 

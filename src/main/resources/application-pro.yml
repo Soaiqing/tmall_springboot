@@ -51,7 +51,7 @@ logging:
   # wzh新增配置
   # 配置swagger
 swagger:
-  enable: true
+  enable: false
 
 rabbit:
   #工作

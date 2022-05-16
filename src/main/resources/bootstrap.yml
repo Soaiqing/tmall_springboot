@@ -4,9 +4,11 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 127.0.0.1:8848
+        server-addr: localhost:8848
         file-extension: yml
         refresh-enabled: true
         group: DEFAULT_GROUP
+      discovery:
+        server-addr: localhost:8848
 
 

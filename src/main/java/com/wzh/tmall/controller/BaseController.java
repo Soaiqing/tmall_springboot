@@ -18,7 +18,7 @@ public abstract class BaseController {
     @Resource
     UserService userService;
 
-    public User getUser(){
+    public User getUser() {
         //获取accessToken
         String accessToken = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest().getHeader("Authorization");
         if (accessToken == null) {

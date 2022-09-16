@@ -1,44 +1,44 @@
 spring:
-  #  application:
-  #    name: tmall
-  #  cloud:
-  #    nacos:
-  #      discovery:
-  #        server-addr: 127.0.0.1:8848
-  #  datasource:
-  #    url: jdbc:mysql://127.0.0.1:3306/tmall_springboot?characterEncoding=UTF-8
-  #    username: root
-  #    password: 123456
-  #    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: tmall
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/tmall_springboot?characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
   http:
     multipart:
       maxFileSize: 100Mb
       maxRequestSize: 100Mb
-#  redis:
-#    database: 1
-#    timeout: 3000
-#    host: 127.0.0.1
-#    port: 6379
-#    password:
-#    jedis:
-#      pool:
-#        max-active: 10
-#        max-wait: -1
-#        max-idle: 8
-#        min-idle: 0
+  redis:
+    database: 1
+    timeout: 3000
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 10
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
 
-#  rabbitmq:
-#    host: localhost
-#    port: 5672
-#    username: guest
-#    password: guest
-#    # 开启消息确认机制 confirm 异步
-#    publisher-confirm-type: correlated
-#    # 消息开启手动确认
-#    listener:
-#      direct:
-#        acknowledge-mode: manual
-#    publisher-returns: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    # 开启消息确认机制 confirm 异步
+    publisher-confirm-type: correlated
+    # 消息开启手动确认
+    listener:
+      direct:
+        acknowledge-mode: manual
+    publisher-returns: true
 
 server:
   port: 7777
@@ -71,6 +71,22 @@ rabbit:
   exchangeDLX: exchange_dlx
   exchangeReceive: exchange_receive
   queueReceive: queue_receive
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:2001/eureka
+
+registry:
+  type: eureka
+
+
+
+
+
 
 
 
